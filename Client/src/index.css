@@ -1,0 +1,354 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Roboto:ital,wght@1,300;1,700&display=swap");
+body {
+  font-family: "Nunito", sans-serif;
+  background: #fff;
+}
+/* All users */
+.all-users {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.single-user {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: white;
+  cursor: pointer;
+  border-radius: 50px;
+  margin-right: 0.5rem;
+  position: relative;
+  border: 1px solid rgb(100, 100, 100);
+}
+
+/* User Card */
+.user-card {
+  transition: transform 0.3s ease;
+  border-radius: 20px;
+  color: white;
+  position: relative;
+  margin: 5px auto;
+  border: 1px solid rgb(100, 100, 100);
+  width: 95%;
+}
+
+/* .user-card .text-content {
+  width: 220px;
+} */
+
+.user-card .name {
+  font-weight: 700;
+  color: #000;
+}
+
+.user-card .text,
+.user-card .date {
+  font-size: 14px;
+  color: #000;
+}
+
+.user-online {
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: rgb(0, 219, 0);
+  position: absolute;
+  top: 10px;
+  right: 7px;
+  z-index: 2;
+}
+
+/* Chat Box */
+.chat-box {
+  height: 100%;
+  width: 100%;
+
+  overflow-y: auto;
+  background: rgb(186 230 253);
+  border-radius: 10px;
+}
+
+.messages-box {
+  height: 85vh;
+}
+
+/* Chat Header */
+.chat-header {
+  display: flex;
+  padding: 0.75rem;
+  color: black;
+  background: rgb(125 211 252);
+  justify-content: space-between;
+}
+
+.left-section {
+  display: flex;
+  align-items: center; /* Đảm bảo các phần tử trong left-section căn giữa theo chiều dọc */
+}
+
+.right-section {
+  display: flex;
+  align-items: center; /* Đảm bảo các phần tử trong right-section căn giữa theo chiều dọc */
+}
+
+/* Messages */
+.messages {
+  max-height: calc(100vh - 15rem);
+  overflow-y: auto;
+  padding: 0 2rem;
+}
+
+.message {
+  color: white;
+  background: #282828;
+  padding: 0.75rem;
+  border-radius: 30px;
+}
+.mess {
+  max-width: 50%;
+}
+
+.message.self {
+  color: white;
+  background: #00bd9b;
+}
+
+.message-footer {
+  font-size: 12px;
+  align-self: flex-end;
+  font-weight: 400;
+}
+
+/* Chat Input  */
+.chat-input {
+  width: 100%;
+  background: rgb(125 211 252);
+  padding: 1rem;
+}
+.send-btn {
+  border: none;
+  background: rgba(72, 112, 223, 1);
+  color: white;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+/* Notification */
+.notifications {
+  position: relative;
+}
+
+.notifications-icon {
+  color: white;
+  cursor: pointer;
+  position: relative;
+  margin-right: 1rem;
+}
+
+.notifications-box {
+  max-height: 50vh;
+  width: 300px;
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  background: rgb(249 250 251);
+  color: black;
+  z-index: 5;
+}
+
+.notifications-header {
+  padding: 1rem;
+  padding-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.notifications-box h3 {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.mark-as-read {
+  cursor: pointer;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.notification {
+  font-size: 14px;
+  margin: 1rem 0;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid rgb(207, 207, 207);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+.notification.not-read {
+  background: rgb(156 163 175);
+}
+
+.notification-time {
+  margin-top: 0.2rem;
+  font-size: 12px;
+  color: black;
+}
+
+.notification-count {
+  display: flex;
+  background: red;
+  height: 25px;
+  width: 25px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -10px;
+  right: -15px;
+}
+
+.this-user-notifications {
+  display: flex;
+  background: #00bd9b;
+  height: 20px;
+  width: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-user {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  objectfit: cover;
+  margin: 5px;
+}
+.me-2 {
+  color: #000;
+}
+.hover-chat:hover {
+  background: #cccccc;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container-box {
+  display: flex;
+  flex: 1;
+  margin: 0 20px 10px 20px;
+}
+
+.user-list-container {
+  width: 30%;
+  max-width: 30%; /* Đặt chiều rộng tối đa */
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  margin-right: 5px;
+}
+
+.online-status {
+  width: 100%;
+  border-radius: 20px;
+  display: flex;
+  overflow-x: scroll;
+  border: 1px solid rgb(100, 100, 100);
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.users {
+  flex: 1;
+  overflow-y: scroll;
+  max-height: 480px;
+}
+
+.chat-container {
+  width: 70%;
+  max-width: 70%; /* Đặt chiều rộng tối đa */
+  display: flex;
+  max-height: 600px;
+  flex-direction: column;
+}
+
+.chat {
+  flex: 1;
+  overflow-y: scroll;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+
+/*  */
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #f6d365;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(
+    to right bottom,
+    rgba(246, 211, 101, 1),
+    rgba(253, 160, 133, 1)
+  );
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(
+    to right bottom,
+    rgba(246, 211, 101, 1),
+    rgba(253, 160, 133, 1)
+  );
+}
+.container {
+  height: 100vh;
+}
+
+.justify-content-center {
+  height: 100vh;
+}
+
+.setting-container {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.profile-image {
+  width: 300px;
+}
+
+.my-5 {
+  margin-bottom: 5px;
+}
+
+.profile-image-container {
+  position: relative;
+}
+
+.button-under-image {
+  position: absolute;
+  bottom: -20px; /* Điều chỉnh khoảng cách nút với ảnh */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px; /* Đảm bảo chiều rộng và chiều cao của nút là như nhau */
+  height: 40px;
+  border-radius: 50%; /* Làm cho nút trở thành hình tròn */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.h5-button-spacing {
+  margin-top: 30px;
+}
+.TableRow:hover {
+  background: rgb(156 163 175);
+}
