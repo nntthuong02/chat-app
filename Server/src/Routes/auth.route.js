@@ -9,4 +9,5 @@ router.get("/", authController.getUser);
 router.post("/friends", authController.getFriends);
 router.post("/online/", authController.updateOnline);
 router.post("/profile", authController.updateProfile);
+
 module.exports = router;

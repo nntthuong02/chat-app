@@ -4,6 +4,8 @@ import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import { AuthContext } from "../../context/Authcontext";
 import { useEffect } from "react";
 import { baseUrl, postRequest } from "../../utils/services";
+// import cloudinaryUpload from "../../service/upload";
+import axios from "axios";
 export default function Profile() {
   const { user } = useContext(AuthContext);
   const [profileData, setProfileData] = useState(user);
@@ -54,6 +56,38 @@ export default function Profile() {
   const isProfileDataChanged = () => {
     return JSON.stringify(profileData) !== JSON.stringify(originalProfileData);
   };
+  //
+  useEffect(() => {
+    // Gọi API từ backend để lấy đường dẫn hình ảnh đã tải lên
+    axios
+      .get("http://localhost:8081/auth/cloudinary-upload")
+      .then((response) => {
+        // Lưu đường dẫn vào setProfileData.avatar
+        setProfileData((prevData) => ({
+          ...prevData,
+          avatar: response.data.secure_url,
+        }));
+      })
+      .catch((error) => {
+        console.error("Error fetching image:", error);
+      });
+  }, []);
+
+  const handleFileUpload = (e) => {
+    const uploadData = new FormData();
+    uploadData.append("file", e.target.files[0], "file");
+    cloudinaryUpload(uploadData);
+  };
+  const [file, setFile] = useState();
+  const upload = () => {
+    const formData = new FormData();
+    formData.append("file", file);
+    axios
+      .post("http://localhost:3001/upload", formData)
+      .then((res) => {})
+      .catch((er) => console.log(er));
+  };
+  //
   return (
     <Card className="w-100 h-100" style={{ borderRadius: ".5rem" }}>
       <Row className="w-100 h-100">
@@ -72,8 +106,16 @@ export default function Profile() {
                 alt="Avatar"
                 className="my-5 profile-image"
               />
-
-              <input id="fileInput" type="file" style={{ display: "none" }} />
+              <div>
+                <input
+                  type="file"
+                  onChange={(e) => setFile(e.target.files[0])}
+                />
+                <button type="button" onClick={upload}>
+                  Upload
+                </button>
+              </div>
+              {/* <input id="fileInput" type="file" style={{ display: "none" }} /> */}
             </div>
             <h5 className="h5-button-spacing" style={{ color: "black" }}>
               {profileData.name}

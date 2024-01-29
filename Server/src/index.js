@@ -8,7 +8,11 @@ const route = require("./Routes/index.route");
 const ConnectDB = require("./config/db.config");
 const { Server } = require("socket.io");
 const port = process.env.PORT || 3002;
+///
+const uploadRouter = require("./routes/upload");
 
+app.use("/uploads", uploadRouter);
+////
 app.use(
   express.urlencoded({
     extended: true,
