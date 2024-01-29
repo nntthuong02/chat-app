@@ -107,13 +107,13 @@ export default function Profile() {
                 className="my-5 profile-image"
               />
               <div>
-                <input
+                {/* <input
                   type="file"
                   onChange={(e) => setFile(e.target.files[0])}
-                />
-                <button type="button" onClick={upload}>
+                /> */}
+                {/* <button type="button" onClick={upload}>
                   Upload
-                </button>
+                </button> */}
               </div>
               {/* <input id="fileInput" type="file" style={{ display: "none" }} /> */}
             </div>
